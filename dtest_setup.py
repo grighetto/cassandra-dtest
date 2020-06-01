@@ -253,6 +253,9 @@ class DTestSetup(object):
 
         return session
 
+    def get_cql_connection(self, node, **kwargs):
+        return self.patient_exclusive_cql_connection(node, retry_policy=None, **kwargs)
+
     def patient_exclusive_cql_connection(self, node, keyspace=None,
                                          user=None, password=None, timeout=30, compression=True,
                                          protocol_version=None, port=None, ssl_opts=None, **kwargs):
